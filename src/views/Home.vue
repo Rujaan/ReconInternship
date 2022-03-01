@@ -1,13 +1,22 @@
 <template>
   <h1>Welcome to the Banking App</h1>
-  <h3>
-    Let's get started
-    <span> <router-link :to="{ name: 'Login' }">Login</router-link></span>
-  </h3>
-  <p>
-    hi
-    {{ username }}
-  </p>
+  <div v-if="username">
+    <h2>
+      Hi {{ username }}
+      <br />
+      <br />
+      Seems like you're logged in Let's go to the
+      <span>
+        <router-link :to="{ name: 'Dashboard' }">Dashboard</router-link></span
+      >
+    </h2>
+  </div>
+  <div v-else>
+    <h2>
+      Let's get started
+      <span> <router-link :to="{ name: 'Login' }">Login</router-link></span>
+    </h2>
+  </div>
 </template>
 
 <script>
