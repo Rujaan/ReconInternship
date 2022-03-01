@@ -17,13 +17,14 @@ export default {
     return {
       username: "",
       password: "",
+      bankApp: {},
     };
   },
   methods: {
     handleFormSubmit() {
-      console.log(this.username);
-      console.log(this.password);
-      localStorage.setItem("username", this.username);
+      this.bankApp.username = this.username;
+      localStorage.setItem("bankApp", JSON.stringify(this.bankApp));
+      this.$router.push("/dashboard");
     },
   },
 };

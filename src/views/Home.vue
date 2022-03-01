@@ -14,7 +14,9 @@
 export default {
   computed: {
     username: function () {
-      return localStorage.getItem("username");
+      if (localStorage.getItem("bankApp")) {
+        return JSON.parse(localStorage.getItem("bankApp")).username;
+      }
     },
   },
   methods: {

@@ -1,6 +1,7 @@
 <template>
   <div>
     <h2>Login</h2>
+    <!-- <p>{{localStorage.getItem.}}</p> -->
     <LoginForm />
   </div>
 </template>

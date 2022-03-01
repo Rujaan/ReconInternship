@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar.vue";
 
 <template>
   <div class="navbar">
-    <div class="logo">Logo</div>
+    <div class="logo"><router-link to="/">Logo</router-link></div>
     <Navbar v-if="this.$route.path !== '/login'" />
   </div>
 

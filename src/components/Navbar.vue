@@ -3,8 +3,11 @@
     <!-- use the router-link component for navigation. -->
     <!-- specify the link by passing the `to` prop. -->
     <!-- `<router-link>` will render an `<a>` tag with the correct `href` attribute -->
-    <router-link to="/">Go to Home</router-link>
+
     <router-link :to="{ name: 'Dashboard' }">Go to Dashboard</router-link>
+    <div v-if="username">
+      {{ username }}
+    </div>
     <router-link :to="{ name: 'Login' }">Go to Login</router-link>
   </div>
 </template>
