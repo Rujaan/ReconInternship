@@ -1,18 +1,15 @@
 <script setup>
+import Navbar from "./components/Navbar.vue";
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 </script>
 
 <template>
-  <h1>Hello App!</h1>
-  <p>
-    <!-- use the router-link component for navigation. -->
-    <!-- specify the link by passing the `to` prop. -->
-    <!-- `<router-link>` will render an `<a>` tag with the correct `href` attribute -->
-    <router-link to="/">Go to Home</router-link>
-    <router-link :to="{ name: 'Dashboard' }">Go to Dashboard</router-link>
-    <router-link :to="{ name: 'Login' }">Go to Login</router-link>
-  </p>
+  <div class="navbar">
+    <div class="logo">Logo</div>
+    <Navbar v-if="this.$route.path !== '/login'" />
+  </div>
+
   <!-- route outlet -->
   <!-- component matched by the route will render here -->
   <router-view></router-view>
@@ -25,6 +22,15 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin: 3rem 3rem 0 3rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  text-align: left;
 }
 </style>
