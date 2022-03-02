@@ -11,11 +11,15 @@
     <button @click="toggleCreditModal">Credit</button>
     <button @click="toggleDebitModal">Debit</button>
   </div>
+  <div>
+    <DashboardTable />
+  </div>
 </template>
 
 <script>
 import CreditForm from "../components/BankForm/CreditForm.vue";
 import DebitForm from "../components/BankForm/DebitForm.vue";
+import DashboardTable from "../components/DashboardTable.vue";
 export default {
   data() {
     return {
@@ -42,7 +46,7 @@ export default {
       this.showDebitModal = !this.showDebitModal;
     },
   },
-  components: { CreditForm, DebitForm },
+  components: { CreditForm, DebitForm, DashboardTable },
 };
 </script>
 

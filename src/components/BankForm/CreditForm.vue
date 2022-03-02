@@ -33,13 +33,14 @@ export default {
   },
   methods: {
     handleFormSubmit() {
-      this.credits.push({
+      this.bankApp.value.push({
         amount: this.amount,
         date: this.date,
         remarks: this.remarks,
+        type: "credit",
       });
-      this.bankApp.credits = this.credits;
-      // this.bankApp.push(this.credits);
+      console.log(this.bankApp.value);
+      // this.bankApp.value = this.bank.value.push(this.credits);
 
       localStorage.setItem("bankApp", JSON.stringify(this.bankApp));
     },
