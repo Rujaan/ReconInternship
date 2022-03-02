@@ -8,7 +8,6 @@
       <button>Submit</button>
     </div>
   </form>
-  <p>email: {{ username }} passwrd : {{ password }}</p>
 </template>
 
 <script>
