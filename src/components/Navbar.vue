@@ -1,16 +1,10 @@
 <template>
   <div class="nav-items">
-    <!-- use the router-link component for navigation. -->
-    <!-- specify the link by passing the `to` prop. -->
-    <!-- `<router-link>` will render an `<a>` tag with the correct `href` attribute -->
     <div v-if="username" class="nav-items-2">
       <button @click="logout">Logout</button>
-      <div>
+      <div class="user">
         {{ username }}
       </div>
-    </div>
-    <div v-else>
-      <router-link :to="{ name: 'Login' }">Go to Login</router-link>
     </div>
   </div>
 </template>
@@ -33,10 +27,10 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .nav-items a,
 .nav-items-2 div {
-  padding: 0 1rem 0 1rem;
+  padding: 0.6rem 1rem;
 }
 
 .nav-items-2 {
@@ -45,5 +39,30 @@ export default {
 
 .nav-items {
   display: flex;
+}
+
+.user {
+  padding: 28px 20px;
+}
+
+button {
+  border: 1px solid #f48668;
+  background-color: transparent;
+  color: #f48668;
+
+  padding: 0 20px 0 20px;
+  border-radius: 7px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #f48668;
+  border: 1px solid #f48668;
+  color: #fff;
+}
+
+button:focus {
+  box-shadow: 0px 0px 0px 5px #f48668, 0px 0px 0px 0px #f48668;
+  outline: none;
 }
 </style>

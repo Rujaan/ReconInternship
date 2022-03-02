@@ -9,6 +9,7 @@ import Home from "../views/Home.vue";
 import Dashboard from "../views/Dashboard.vue";
 import DashboardDetails from "../views/DashboardDetails.vue";
 import Login from "../views/Login.vue";
+import NotFound from "../views/NotFound.vue";
 
 // Defining routes
 const routes = [
@@ -21,6 +22,7 @@ const routes = [
     name: "DashboardDetails",
     props: true,
   },
+  { path: "/:pathMatch(.*)*", name: "NotFound", component: NotFound },
 ];
 
 //  Creating the router instance and pass the `routes` option

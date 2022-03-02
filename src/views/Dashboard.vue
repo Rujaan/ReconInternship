@@ -1,18 +1,21 @@
 <template>
-  Dashboard
-  <br />
-  <div v-if="showCreditModal">
-    <CreditForm @close="toggleCreditModal" @added="updateTable" />
-  </div>
-  <div v-if="showDebitModal">
-    <DebitForm @close="toggleDebitModal" @added="updateTable" />
-  </div>
-  <div>
-    <button @click="toggleCreditModal">Credit</button>
-    <button @click="toggleDebitModal">Debit</button>
-  </div>
-  <div>
-    <DashboardTable :key="componentKey" />
+  <div class="dashboard">
+    <h1>Dashboard</h1>
+
+    <div v-if="showCreditModal">
+      <CreditForm @close="toggleCreditModal" @added="updateTable" />
+    </div>
+    <div v-if="showDebitModal">
+      <DebitForm @close="toggleDebitModal" @added="updateTable" />
+    </div>
+
+    <div class="buttons">
+      <button @click="toggleCreditModal">Add Credit</button>
+      <button @click="toggleDebitModal">Add Debit</button>
+    </div>
+    <div>
+      <DashboardTable :key="componentKey" />
+    </div>
   </div>
 </template>
 
@@ -55,4 +58,35 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.dashboard {
+  text-align: left;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.buttons {
+  display: flex;
+  column-gap: 1rem;
+}
+button {
+  margin: 25px 0 15px;
+  background-color: #f48668;
+  border: 1px solid #f48668;
+  padding: 12px 20px;
+  border-radius: 7px;
+  transition: 0.3s;
+  color: #fff;
+}
+
+button:hover {
+  border: 1px solid #f48668;
+  background-color: transparent;
+  color: #f48668;
+}
+
+button:focus {
+  box-shadow: 0px 0px 0px 1px #f48668, 0px 0px 0px 0px #f48668;
+  outline: none;
+}
+</style>
