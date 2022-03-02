@@ -5,7 +5,7 @@
     <CreditForm @close="toggleCreditModal" @added="updateTable" />
   </div>
   <div v-if="showDebitModal">
-    <DebitForm @close="toggleDebitModal" />
+    <DebitForm @close="toggleDebitModal" @added="updateTable" />
   </div>
   <div>
     <button @click="toggleCreditModal">Credit</button>

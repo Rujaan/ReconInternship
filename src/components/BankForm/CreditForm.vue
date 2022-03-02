@@ -22,9 +22,9 @@ export default {
       date: new Date().toISOString().slice(0, 10),
       amount: 0,
       remarks: "",
+      total: JSON.parse(localStorage.getItem("bankApp")).total || 0,
       bankApp: JSON.parse(localStorage.getItem("bankApp")),
       credit: {},
-      credits: [],
     };
   },
   methods: {
@@ -35,12 +35,21 @@ export default {
         remarks: this.remarks,
         type: "credit",
       });
+      this.bankApp.total += this.amount;
       // console.log(this.bankApp.value);
       this.$emit("added");
       // this.bankApp.value = this.bank.value.push(this.credits);
 
       localStorage.setItem("bankApp", JSON.stringify(this.bankApp));
     },
+  },
+  mounted() {
+    if (!this.bankApp.value) {
+      this.bankApp.value = [];
+    }
+    if (!this.bankApp.total) {
+      this.bankApp.total = 0;
+    }
   },
   components: { Modal },
 };
