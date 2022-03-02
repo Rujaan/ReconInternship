@@ -7,6 +7,7 @@ import {
 // Importing components from other files
 import Home from "../views/Home.vue";
 import Dashboard from "../views/Dashboard.vue";
+import DashboardDetails from "../views/DashboardDetails.vue";
 import Login from "../views/Login.vue";
 
 // Defining routes
@@ -14,6 +15,12 @@ const routes = [
   { path: "/", component: Home, name: "Home" },
   { path: "/dashboard", component: Dashboard, name: "Dashboard" },
   { path: "/login", component: Login, name: "Login" },
+  {
+    path: "/dashboard/date/:id",
+    component: DashboardDetails,
+    name: "DashboardDetails",
+    props: true,
+  },
 ];
 
 //  Creating the router instance and pass the `routes` option

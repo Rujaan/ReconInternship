@@ -9,7 +9,13 @@
       <th>Type</th>
     </tr>
     <tr v-for="value in values" :key="value.remarks">
-      <td>{{ value.date }}</td>
+      <td>
+        <router-link
+          :to="{ name: 'DashboardDetails', params: { id: value.date } }"
+        >
+          {{ value.date }}
+        </router-link>
+      </td>
       <td>{{ value.remarks }}</td>
       <td>{{ value.amount }}</td>
       <td>{{ value.type }}</td>

@@ -36,9 +36,7 @@ export default {
         type: "debit",
       });
       this.bankApp.total -= this.amount;
-      // console.log(this.bankApp.value);
       this.$emit("added");
-      // this.bankApp.value = this.bank.value.push(this.credits);
 
       localStorage.setItem("bankApp", JSON.stringify(this.bankApp));
     },
