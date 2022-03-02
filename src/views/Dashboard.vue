@@ -2,7 +2,7 @@
   Dashboard
   <br />
   <div v-if="showCreditModal">
-    <CreditForm @close="toggleCreditModal" />
+    <CreditForm @close="toggleCreditModal" @added="updateTable" />
   </div>
   <div v-if="showDebitModal">
     <DebitForm @close="toggleDebitModal" />
@@ -12,7 +12,7 @@
     <button @click="toggleDebitModal">Debit</button>
   </div>
   <div>
-    <DashboardTable />
+    <DashboardTable :key="componentKey" />
   </div>
 </template>
 
@@ -26,6 +26,7 @@ export default {
       username: null,
       showCreditModal: false,
       showDebitModal: false,
+      componentKey: 0,
     };
   },
   mounted() {
@@ -38,12 +39,16 @@ export default {
       this.$router.push("/login");
     }
   },
+  watch: {},
   methods: {
     toggleCreditModal() {
       this.showCreditModal = !this.showCreditModal;
     },
     toggleDebitModal() {
       this.showDebitModal = !this.showDebitModal;
+    },
+    updateTable() {
+      this.componentKey += 1;
     },
   },
   components: { CreditForm, DebitForm, DashboardTable },

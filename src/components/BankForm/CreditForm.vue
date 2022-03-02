@@ -9,10 +9,6 @@
       <input type="text" v-model="remarks" />
       <div>
         <button>Submit</button>
-        {{ credits }}
-        <br />
-        --------
-        {{ bankApp }}
       </div>
     </form>
   </Modal>
@@ -39,7 +35,8 @@ export default {
         remarks: this.remarks,
         type: "credit",
       });
-      console.log(this.bankApp.value);
+      // console.log(this.bankApp.value);
+      this.$emit("added");
       // this.bankApp.value = this.bank.value.push(this.credits);
 
       localStorage.setItem("bankApp", JSON.stringify(this.bankApp));
