@@ -1,5 +1,13 @@
-<script setup>
+<script>
 import Navbar from "./components/Navbar.vue";
+export default {
+  computed: {
+    hide: function () {
+      return this.$route.path !== "/login";
+    },
+  },
+  components: { Navbar },
+};
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 </script>
@@ -7,7 +15,7 @@ import Navbar from "./components/Navbar.vue";
 <template>
   <div class="navbar">
     <div class="logo"><router-link to="/">Logo</router-link></div>
-    <Navbar v-if="this.$route.path !== '/login'" />
+    <Navbar v-if="hide" />
   </div>
 
   <!-- route outlet -->
